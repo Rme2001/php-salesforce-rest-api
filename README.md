@@ -118,6 +118,9 @@ Custom endpoint
 ```
 
 #### Changelog: ####
+##### 06.05.2021 #####
+- [breaking] switched version parameter in constructor to the end
+
 ##### 01.03.2021 #####
  - added method to use custom endpoints
 

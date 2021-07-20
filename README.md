@@ -118,6 +118,10 @@ Custom endpoint
 ```
 
 #### Changelog: ####
+
+##### 20.07.2021 ####
+- Updated guzzlehttp/guzzle dependency to 7.2
+
 ##### 06.05.2021 #####
 - [breaking] switched version parameter in constructor to the end
 

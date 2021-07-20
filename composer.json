@@ -30,7 +30,7 @@
 		}
 	],
 	"require": {
-		"guzzlehttp/guzzle": "^6.2",
+		"guzzlehttp/guzzle": "^7.2",
 		"php": ">=7.0",
 		"ext-json": "*"
 	},

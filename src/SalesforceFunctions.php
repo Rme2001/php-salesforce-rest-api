@@ -128,6 +128,38 @@ class SalesforceFunctions
         return json_decode($request->getBody(), true);
     }
 
+    public function get($object, $id): array
+    {
+        $url = "{$this->instanceUrl}/services/data/{$this->apiVersion}/sobjects/{$object}/{$id}";
+
+        $client = new Client();
+
+        try {
+            $request = $client->request(
+                'GET',
+                $url,
+                [
+                    'headers' => [
+                        'Authorization' => "OAuth {$this->accessToken}",
+                        'Content-type' => 'application/json'
+                    ],
+                ]
+            );
+        } catch (ClientException $e) {
+            throw SalesforceException::fromClientException($e);
+        }
+
+        $status = $request->getStatusCode();
+
+        if ($status !== 200) {
+            throw new SalesforceException(
+                "Error: call to URL {$url} failed with status {$status}, response: {$request->getReasonPhrase()}"
+            );
+        }
+
+        return json_decode($request->getBody(), true);
+    }
+
     /**
      * @param $object
      * @param $field
